@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data // getter setter
 public class SnsDTO {
     private Integer id;
+    private String userid;
     private String title;
     private String img;
     private String date;
@@ -23,6 +24,7 @@ public class SnsDTO {
     //SnsEntity를 Response해주는게 아니라 SnsDTO로 변환해서 넘겨준다
     public SnsDTO (final SnsEntity snsEntity) {
         this.id = snsEntity.getSid();
+        this.userid = snsEntity.getUserid();
         this.title = snsEntity.getTitle();
         this.img = snsEntity.getImg();
         this.date = snsEntity.getDate();
@@ -34,6 +36,7 @@ public class SnsDTO {
     public static SnsEntity toSnsEntity(final SnsDTO dto) {
         return SnsEntity.builder()
                 .sid(dto.getId())
+                .userid(dto.getUserid())
                 .title(dto.getTitle())
                 .img(dto.getImg())
                 .date(dto.getDate())

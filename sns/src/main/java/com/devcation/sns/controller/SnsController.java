@@ -7,6 +7,7 @@ import com.devcation.sns.service.SnsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -45,11 +46,12 @@ public class SnsController {
 
 
     @PostMapping
-    public ResponseEntity<?> addSns(@RequestBody SnsDTO dto) {
+    public ResponseEntity<?> addSns(@AuthenticationPrincipal String userId, @RequestBody SnsDTO dto) {
         try{
             //DTO -> Entity
             SnsEntity snsEntity = SnsDTO.toSnsEntity(dto);
             snsEntity.setSid(null);
+            snsEntity.setUserid(userId);
             List<SnsEntity> snsEntities = service.addSns(snsEntity);
 
             //Entity -> DTO
@@ -88,10 +90,11 @@ public class SnsController {
     }
 
     @PatchMapping()
-    public ResponseEntity<?> updateSns(@RequestBody SnsDTO dto) {
+    public ResponseEntity<?> updateSns(@AuthenticationPrincipal String userId, @RequestBody SnsDTO dto) {
 
             //DTO -> Entity
         SnsEntity snsNewEntity = SnsDTO.toSnsEntity(dto);
+        snsNewEntity.setUserid(userId);
         List<SnsEntity> snsEntities = service.updateSns(snsNewEntity);
 
         List<SnsDTO> list = snsEntities.stream().map(SnsDTO::new).collect(Collectors.toList());
@@ -105,10 +108,11 @@ public class SnsController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<?> deleteSns(@RequestBody SnsDTO dto) {
+    public ResponseEntity<?> deleteSns(@AuthenticationPrincipal String userId,@RequestBody SnsDTO dto) {
 
         //DTO -> Entity
         SnsEntity snsNewEntity = SnsDTO.toSnsEntity(dto);
+        snsNewEntity.setUserid(userId);
         List<SnsEntity> snsEntities = service.deleteSns(snsNewEntity);
 
         //Entity -> DTO

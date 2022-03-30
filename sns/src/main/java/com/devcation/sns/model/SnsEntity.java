@@ -19,6 +19,7 @@ public class SnsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 데이터베이스가 자동으로 AUTO_INCREMENT
     private Integer sid;
 
+    private String userid;
     private String title;
     private String img;
     private String date;
