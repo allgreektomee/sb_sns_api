@@ -1,7 +1,7 @@
-package com.devcation.sns.config;
+package com.devcation.sns.common.config;
 
 
-import com.devcation.sns.security.JwtAuthenticationFilter;
+import com.devcation.sns.common.security.JwtAuthenticationFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

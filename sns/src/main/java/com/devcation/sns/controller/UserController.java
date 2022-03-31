@@ -3,7 +3,7 @@ package com.devcation.sns.controller;
 import com.devcation.sns.data.ResponseDTO;
 import com.devcation.sns.data.UserDTO;
 import com.devcation.sns.model.UserEntity;
-import com.devcation.sns.security.TokenProvider;
+import com.devcation.sns.common.security.TokenProvider;
 import com.devcation.sns.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

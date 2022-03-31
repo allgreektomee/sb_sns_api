@@ -1,4 +1,4 @@
-package com.devcation.sns.security;
+package com.devcation.sns.common.security;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

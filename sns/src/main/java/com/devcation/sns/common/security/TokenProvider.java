@@ -1,4 +1,4 @@
-package com.devcation.sns.security;
+package com.devcation.sns.common.security;
 
 
 import com.devcation.sns.model.UserEntity;

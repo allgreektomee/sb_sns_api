@@ -10,7 +10,9 @@ import java.util.List;
 public interface SnsRepository extends JpaRepository<SnsEntity, Integer> {
 
 
-    List<SnsEntity> findBySid(Integer sid); // 특정 게시글
+    List<SnsEntity> findByUserid(String userid); // 특정 사용자 전체 게시글
+
+    SnsEntity findBySid(Integer sid); //특정 게시글(상셰)
     List<SnsEntity> findAll();
 
 }

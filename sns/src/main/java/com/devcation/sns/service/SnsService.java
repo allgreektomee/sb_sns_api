@@ -63,7 +63,17 @@ public class SnsService {
         isValidation(snsEntity);
         snsRepository.save(snsEntity);
         log.info("addPost sid = {} ", snsEntity.getSid());
-        return snsRepository.findBySid(snsEntity.getSid());
+        return snsRepository.findByUserid(snsEntity.getUserid());
+    }
+
+    public SnsEntity addSnsWithFiles(final SnsEntity snsEntity) {
+        // Validations
+//        if (isValidation(snsEntity)) return null;
+
+        isValidation(snsEntity);
+        snsRepository.save(snsEntity);
+        log.info("addPost sid = {} ", snsEntity.getSid());
+        return snsEntity;
     }
 
     public List<SnsEntity> listSns() {
